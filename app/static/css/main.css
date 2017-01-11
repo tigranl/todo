@@ -1,0 +1,26 @@
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+.enter {
+    width: 30%;
+}
+
+#center-login {
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.waves-effect.waves-light.btn.waves-input-wrapper {
+    float: right !important;
+    clear: both !important;
+}

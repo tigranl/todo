@@ -1,8 +1,7 @@
 import os, sys
 from flask.ext.script import Manager, Server
-from app import app
+from app import app, views
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
-from app import views
 
 manager = Manager(app)
 

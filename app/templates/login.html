@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/materialize.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/main.css') }}">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="{{url_for('static', filename='js/materialize.min.js')}}"></script>
+    <title>Login</title>
+</head>
+<body>
+<div id="center-login">
+<div class="enter">
+<div class="row">
+    <form method="POST">
+        <div class="row">
+            {{ login_form.csrf_token }}
+            <div class="input-field col s6">
+             <i class="material-icons prefix">email</i>
+             {{ login_form.email }}
+             <label for="email">Email</label>
+            </div>
+            <div class="input-field col s6">
+             <i class="material-icons prefix">account_circle</i>
+             {{ login_form.password }}
+             <label for="password">password</label>
+            </div>
+            <p>
+             {{ login_form.checkbox }}
+             <label for="filled-in-box">Remember me</label>
+            </p>
+        {{ login_form.submit() }}
+        </div>
+    </form>
+</div>
+</div>
+</div>
+
+</body>
+</html>

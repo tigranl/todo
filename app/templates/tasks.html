@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/materialize.css')}}">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="{{url_for('static', filename='js/materialize.min.js')}}"></script>
+    <title>Notes</title>
+</head>
+<body>
+
+<nav>
+  <ul id="slide-out" class="side-nav fixed">
+      <li class="bold"><a href="" class="waves-effect waves-teal">Tasks</a></li>
+      <li class="bold"><a href="" class="">Archive</a></li>
+  </ul>
+  <a href="#" data-activates="slide-out" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
+</nav>
+
+<div id="cards-pos">
+    {% for post in posts|reverse %}
+        <div id="cards">
+            <div class="card-panel light-blue darken-1">{{ post.note }} <p class="date">{{ post.date.strftime(" %H:%M, %B %d %Y") }}</p></div>
+        </div>
+    {% endfor %}
+</div>
+
+<a class="btn-floating btn-large waves-effect waves-light red modal-trigger" id="button" href="#note"><i class="material-icons">add</i></a>
+<div id="note" class="modal">
+    <div class="modal-content">
+        <form method="POST" enctype="multipart/form-data">
+            {{ post_form.csrf_token }}
+            {{ post_form.title }}
+    </div>
+    <div class="modal-footer">
+            {{ post_form.submit() }}
+        </form>
+    </div>
+</div>
+
+<style>
+    html, body {
+    height: 100%;
+    margin: 0;
+    }
+    .date {
+        color: white;
+    }
+    #cards-pos {
+        position: absolute;
+        left: 400px;
+    }
+    .card-panel.light-blue.darken-1 {
+        width: 500px;
+    }
+    #button {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+    }
+
+</style>
+
+<script>
+    $('.button-collapse').sideNav({
+      menuWidth: 300,
+      closeOnClick: true
+    }
+  );
+  $('.collapsible').collapsible();
+
+
+    $(document).ready(function(){
+    $('.modal-trigger').leanModal();
+  });
+
+</script>
+</body>
+</html>

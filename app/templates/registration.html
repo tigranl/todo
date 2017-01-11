@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>reg</title>
+</head>
+<body>
+<form method="POST">
+    {{ form.csrf_token }}
+    {{ form.email }}
+    {{ form.first_name }}
+    {{ form.last_name }}
+    {{ form.password }}
+    {{ form.submit() }}
+</form>
+</body>
+</html>
