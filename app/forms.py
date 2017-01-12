@@ -19,11 +19,13 @@ class Registration(Form):
 
 
 class Login(Form):
-    email = StringField(validators=[Email(), InputRequired()], render_kw={'id': 'email', 'class': 'validate',
-                                                                          'type': 'email'})
-    password = PasswordField(validators=[InputRequired()], render_kw={'id': 'password', 'class': 'validate',
-                                                                          'type': 'password'})
-    submit = SubmitField('Login', render_kw={'class':'waves-effect waves-light btn'})
+    email = StringField(validators=[Email(), InputRequired()],
+                        render_kw={'id': 'email', 'class': 'validate',
+                                   'type': 'email'})
+    password = PasswordField(validators=[InputRequired()],
+                             render_kw={'id': 'password', 'class': 'validate',
+                                        'type': 'password'})
+    submit = SubmitField('Login', render_kw={'class': 'waves-effect waves-light btn'})
     checkbox = BooleanField(render_kw={'class': 'filled-in', 'id': 'filled-in-box'})
 
 
