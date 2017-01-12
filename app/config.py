@@ -1,5 +1,6 @@
 import os
-import random, string
+import random
+import string
 
 basedir = os.path.abspath(os.path.dirname(__file__))
 
@@ -12,7 +13,8 @@ def key():
         open(os.path.join(basedir, "key"), "r").read()
     except FileNotFoundError:
         with open(os.path.join(basedir, "key"), "w", encoding='utf-8') as f:
-            f.write(''.join(random.choice(string.ascii_lowercase + string.digits) for _ in range(24)))
+            f.write(''.join(random.choice(string.ascii_lowercase +
+                                          string.digits) for _ in range(24)))
     return open(os.path.join(basedir, "key"), "r").read()
 
 
